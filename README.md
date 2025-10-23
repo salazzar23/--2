@@ -293,7 +293,7 @@ if __name__ == "__main__":
     assert top_n(freq2, 2) == [("aa", 2), ("bb", 2)]
     print("tests passed")
 ```
-![](./images/text.py.png)
+![](images/text.png)
 
 
 
