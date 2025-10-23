@@ -218,5 +218,83 @@ print(format_record(("  сидорова  анна   сергеевна ", "ABB-
 ![](./images/08.png)
 
 
+# Лабораторная работа 3
+
+## Задание 1
+
+```python
+import sys
+from lib.text import normalize, tokenize, count_freq, top_n
+
+TABLE_MODE = True
+
+def print_table(items):
+    if not items:
+        return
+    max_len = max(len(word) for word, _ in items)
+    print(f"{'слово'.ljust(max_len)} | частота")
+    print("-" * (max_len + 11))
+    for word, count in items:
+        print(f"{word.ljust(max_len)} | {count}")
+
+def main():
+    text = sys.stdin.readline()
+    tokens = tokenize(normalize(text))
+    freqs = count_freq(tokens)
+    top5 = top_n(freqs, 5)
+
+    print(f"Всего слов: {len(tokens)}")
+    print(f"Уникальных слов: {len(freqs)}")
+    print("Топ-5:")
+
+    if TABLE_MODE:
+        print_table(top5)
+    else:
+        for word, count in top5:
+            print(f"{word}:{count}")
+
+if __name__ == "__main__":
+    main()
+```
+![](./images/text_status.png)
+
+
+## Задание 2
+
+```python
+import re
+from collections import Counter
+from typing import List, Dict, Tuple
+
+def normalize(text: str) -> str:
+    text = text.casefold().replace("ё", "е")
+    text = re.sub(r"\s+", " ", text.strip())
+    return text
+
+def tokenize(text: str) -> List[str]:
+    return re.findall(r"\b\w+(?:-\w+)*\b", text)
+
+def count_freq(tokens: List[str]) -> Dict[str, int]:
+    return dict(Counter(tokens))
+
+def top_n(freqs: Dict[str, int], n: int) -> List[Tuple[str, int]]:
+    return sorted(freqs.items(), key=lambda x: (-x[1], x[0]))[:n]
+
+if __name__ == "__main__":
+    assert normalize("ПрИвЕт\nМИр\t") == "привет мир"
+    assert normalize("ёжик, Ёлка") == "ежик, елка"
+    assert tokenize("привет, мир!") == ["привет", "мир"]
+    assert tokenize("по-настоящему круто") == ["по-настоящему", "круто"]
+    assert tokenize("2025 год") == ["2025", "год"]
+    freq = count_freq(["a", "b", "a", "c", "b", "a"])
+    assert freq == {"a": 3, "b": 2, "c": 1}
+    assert top_n(freq, 2) == [("a", 3), ("b", 2)]
+    freq2 = count_freq(["bb", "aa", "bb", "aa", "cc"])
+    assert top_n(freq2, 2) == [("aa", 2), ("bb", 2)]
+    print("tests passed")
+```
+![](./src/lib/text.py.png)
+
+
 
 
