@@ -301,8 +301,6 @@ if __name__ == "__main__":
 ## Задание 1
 
 ```python
-
-
 import csv
 from pathlib import Path
 
