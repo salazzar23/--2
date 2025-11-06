@@ -358,8 +358,7 @@ if __name__ == "__main__":
     # Проверим запись CSV
     write_csv("src/lab04/data/test_report.csv", [("пример", 2), ("текст", 1)])
 ```
-![](./images/10.png)
-
+[](./images/10.png)
 
 
 
