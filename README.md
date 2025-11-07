@@ -356,7 +356,7 @@ if __name__ == "__main__":
     # Проверим запись CSV
     write_csv("src/lab04/data/test_report.csv", [("пример", 2), ("текст", 1)])
 ```
-[](./images/Lab.png)
+![](./images/Lab.png)
 
 # Лабораторная работа 6
 
@@ -408,7 +408,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-[](./images/Lab6.png)
+![](./images/Lab6.png)
 
 
 
