@@ -358,7 +358,7 @@ if __name__ == "__main__":
     # Проверим запись CSV
     write_csv("src/lab04/data/test_report.csv", [("пример", 2), ("текст", 1)])
 ```
-![](./images/09.png)
+![](./images/image09.png)
 
 
 # Лабораторная работа 5
@@ -430,7 +430,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"❌ Ошибка: {e}")
 ```
-![](images/12.png)
+![](images/image12.png)
 
 ## 2
 
@@ -474,7 +474,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"❌ Ошибка: {e}")
 ```
-![](images/11.png)
+![](images/image11.png)
 
 # Лабораторная работа 6
 
@@ -526,8 +526,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-![](./images/10.png)
-
+![](./images/image10.png)
 
 
 
