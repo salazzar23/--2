@@ -656,6 +656,7 @@ def show_stats(filepath, top_n=10):
         print(f"{word:<20} {count:>4}")
 ```
 ![](./images/image14.png)
+
 ![](./images/image15.png)
 
 # Лабораторная работа 8
